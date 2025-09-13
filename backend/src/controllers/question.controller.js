@@ -3,16 +3,17 @@ import * as questionService from "../services/question.service.js";
 // Create a new question
 export const createQuestion = async (req, res) => {
   try {
-    const { text, options, correctAnswer, marks, testId } = req.body;
-    const createdBy = req.id; // assuming user is added to req by auth middleware
+    const { text, options, correctOption, marks, testId, subject } = req.body;
+    const createdBy = req.id; // set by auth middleware
 
     const question = await questionService.createQuestion({
       text,
       options,
-      correctOption: correctAnswer,
+      correctOption,
       marks,
       createdBy,
       testId,
+      subject
     });
 
     res.status(201).json(question);

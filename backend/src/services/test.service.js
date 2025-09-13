@@ -1,5 +1,5 @@
 import Test from "../models/test.model.js";
-import User from "../models/user.model.js";
+import User from "../models/user.models.js";
 
 
 export const createTest = async ({ title, description, duration, questions, createdBy, assignedTo }) => {
@@ -20,12 +20,12 @@ export const getAllTests = async (userId) => {
   const user = await User.findById(userId);
   if (!user) throw new Error("User not found");
 
-  if (user.role === "teacher") {
+  if (user.role.toLowerCase === "teacher") {
     return await Test.find({ createdBy: user._id })
       .populate("questions")
       .populate("assignedTo", "name email");
   } else {
-    return await Test.find({ assignedTo: user._id })
+    return await Test.find()
       .populate("questions")
       .populate("createdBy", "name email");
   }
