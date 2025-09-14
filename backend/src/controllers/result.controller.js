@@ -61,3 +61,20 @@ export const getResult = async (req, res) => {
     res.status(400).json({ success: false, message: err.message });
   }
 };
+
+
+
+export const getStudentResults = async (req, res) => {
+  try {
+    const studentId = req.id; // from auth middleware
+    const results = await resultService.getResultsByStudent(studentId);
+
+    res.status(200).json({
+      success: true,
+      count: results.length,
+      data: results,
+    });
+  } catch (err) {
+    res.status(400).json({ success: false, message: err.message });
+  }
+};

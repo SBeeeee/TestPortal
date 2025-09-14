@@ -153,3 +153,13 @@ export const addViolation = async (resultId) => {
   await result.save();
   return result;
 };
+
+
+
+export const getResultsByStudent = async (studentId) => {
+  const results = await Result.find({ student: studentId })
+    .populate("test")      
+    .populate("student", "name email"); 
+
+  return results;
+};

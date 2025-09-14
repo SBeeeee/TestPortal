@@ -8,4 +8,5 @@ router.patch("/:resultId/answer", verifyUser, resultController.save);
 router.patch("/:resultId/submit", verifyUser, resultController.submit);
 router.patch("/:resultId/violation", verifyUser, resultController.violation);
 router.get("/:resultId", verifyUser,resultController.getResult);
+router.get("/mine/my", verifyUser, resultController.getStudentResults); 
 export default router;
