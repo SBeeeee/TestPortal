@@ -7,7 +7,7 @@ import { setUser, setLoading } from "@/store/user/slice";
 import Loader from "@/components/Loader";
 
 export default function SignupPage() {
-  const [form, setForm] = useState({ name: "", email: "", password: "", role: "student" });
+  const [form, setForm] = useState({ name: "", email: "", password: "", role: "students" });
   const dispatch = useDispatch();
   const router = useRouter();
 
@@ -21,7 +21,7 @@ export default function SignupPage() {
       if (res?.success) {
         localStorage.setItem("token", res.token);
         dispatch(setUser(res.data));
-        router.push(res.data.role === "teacher" ? "/teacher" : "/student");
+        router.push(res.data.role === "teacher" ? "/teacher" : "/students");
       }
     } catch (error) {
       console.error(error);
@@ -81,7 +81,7 @@ export default function SignupPage() {
         >
           Sign Up
         </button>
-        <p className="text-sm text-center text-gray-700">
+        <p className="text-sm text-center text-black">
           Already have an account?{" "}
           <a href="/login" className="text-indigo-600 font-medium hover:underline">
             Login

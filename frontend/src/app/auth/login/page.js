@@ -21,7 +21,7 @@ export default function LoginPage() {
       if (res?.success) {
         localStorage.setItem("token", res.token);
         dispatch(setUser(res.data));
-        router.push(res.data.role === "teacher" ? "/teacher" : "/student");
+        router.push(res.data.role === "teacher" ? "/teacher" : "/students");
       }
     } catch (error) {
       console.error(error);
@@ -66,7 +66,7 @@ export default function LoginPage() {
         </button>
         <p className="text-sm text-center text-gray-700">
           Don’t have an account?{" "}
-          <a href="/signup" className="text-indigo-600 font-medium hover:underline">
+          <a href="/auth/signup" className="text-indigo-600 font-medium hover:underline">
             Sign Up
           </a>
         </p>
