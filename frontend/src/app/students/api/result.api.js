@@ -62,3 +62,15 @@ export const getResultByIdAPI = async (resultId) => {
     throw err.response?.data || err;
   }
 };
+
+export const getStudentResultsAPI = async () => {
+  try {
+    const { data } = await axiosInstance.get("/results/mine/my");
+    console.log("🔌 getStudentResultsAPI response:", data);
+    return data.data || [];
+  } catch (err) {
+    console.error("❌ getStudentResultsAPI error full:", err); 
+    console.error("❌ getStudentResultsAPI error:", err.response?.data || err.message || err);
+    throw err.response?.data || err;
+  }
+};
