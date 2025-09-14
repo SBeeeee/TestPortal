@@ -3,13 +3,24 @@ import Test from "../models/test.model.js";
 import Question from "../models/question.model.js";
 
 export const startResult = async (testId, studentId) => {
-  // Check if already in-progress
+  
   let result = await Result.findOne({ 
     test: testId, 
     student: studentId, 
-    status: "in-progress" 
+   
   });
 
+
+  if (result) {
+    if (result.status === "submitted") {
+    
+      return result;
+    }
+    if (result.status === "in-progress") {
+    
+      return result;
+    }
+  }
   if (!result) {
     result = await Result.create({
       test: testId,
