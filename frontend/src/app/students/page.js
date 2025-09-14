@@ -69,7 +69,7 @@ export default function StudentDashboard() {
                   </span>
                   <button
                     onClick={() =>
-                      (window.location.href = `/student/tests/${test._id}`)
+                      (window.location.href = `/students/tests/${test._id}`)
                     }
                     className="px-4 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition"
                   >

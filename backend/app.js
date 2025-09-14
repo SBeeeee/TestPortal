@@ -7,7 +7,7 @@ import userroutes from './src/routes/user.routes.js'
 import testroutes from './src/routes/test.routes.js'
 import questionroutes from './src/routes/question.routes.js'
 import { connectDB } from "./src/lib/database.js";
-
+import resultroutes from "./src/routes/result.routes.js";
 dotenv.config();
 
 const app = express();
@@ -28,7 +28,7 @@ app.use(
   app.use("/api/users", userroutes);
   app.use("/api/tests", testroutes);
   app.use("/api/questions", questionroutes);
-
+  app.use("/api/results", resultroutes);
   app.listen(process.env.PORT, () => {
     console.log("Server is running on http://localhost:" + process.env.PORT);
     connectDB();
