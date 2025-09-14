@@ -124,7 +124,7 @@ export default function TestPortal() {
           setShowSummary(true);
         } else {
           setResult(updated);
-          console.warn("⚠️ Violation recorded!");
+          alert("⚠️ Violation recorded!");
         }
       } catch (err) {
         console.error("Violation error:", err);
