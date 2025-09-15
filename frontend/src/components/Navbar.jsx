@@ -19,12 +19,12 @@ const Navbar = () => {
     <nav className="fixed top-0 w-full z-50 bg-white
     ">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="flex items-center">
+        <a href="/"  className="flex items-center">
           <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-3">
             <BookOpen className="text-white" size={24} />
           </div>
           <span className="text-2xl font-bold text-gray-900">ExamPortal</span>
-        </div>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
