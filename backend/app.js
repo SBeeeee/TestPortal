@@ -18,7 +18,7 @@ app.use(
     cors({
       origin: [
         "http://localhost:3000", 
-        "https://test-portal-ochre.vercel.app/"
+        "https://test-portal-ochre.vercel.app"
         
       ],
       credentials: true, // allow cookies/auth headers
